@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "clinic-appointment-app",
+  "compatibility_date": "2025-09-02",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "@tanstack/react-start/server-entry",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "clinic-db",
+      "database_id": "clinic-db-local",
+    },
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "SLOT_CACHE",
+      "id": "clinic-slot-cache-local",
+    },
+  ],
+}
