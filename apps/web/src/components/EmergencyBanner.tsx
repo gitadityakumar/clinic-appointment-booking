@@ -5,24 +5,26 @@ export function EmergencyBanner() {
   return (
     <aside
       aria-label="Emergency Medical Notice"
-      className="bg-amber-500/10 dark:bg-amber-500/15 border-b border-amber-500/25 px-4 py-2 text-xs md:text-sm text-amber-900 dark:text-amber-200"
+      className="bg-[#0b1736] dark:bg-[#070e22] border-b border-[#1b2d56] px-4 py-2 text-xs md:text-sm text-slate-100 shadow-sm"
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2">
-          <span className="inline-flex items-center gap-1 font-bold text-amber-700 dark:text-amber-400">
-            <Warning size={16} weight="bold" />
-            <span>MEDICAL NOTICE:</span>
+        <div className="flex items-center gap-2.5 flex-wrap sm:flex-nowrap">
+          <span className="shrink-0 inline-flex items-center gap-1.5 font-mono text-[11px] font-bold tracking-wide uppercase px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/35">
+            <Warning size={14} weight="bold" className="text-amber-400" />
+            <span>Medical Notice</span>
           </span>
-          <span className="hidden sm:inline">{clinicConfig.policies.emergencyNotice}</span>
-          <span className="sm:hidden">
+          <span className="text-slate-200 hidden sm:inline leading-snug">
+            {clinicConfig.policies.emergencyNotice}
+          </span>
+          <span className="text-slate-200 sm:hidden leading-snug">
             In case of medical emergency, please dial 911 immediately.
           </span>
         </div>
         <a
           href={`tel:${clinicConfig.contact.emergencyPhone}`}
-          className="shrink-0 inline-flex items-center gap-1 font-bold underline hover:text-amber-950 dark:hover:text-white"
+          className="shrink-0 inline-flex items-center gap-1.5 font-bold text-xs !text-white bg-rose-600 hover:bg-rose-500 px-3 py-1 rounded-full shadow-sm transition-all hover:scale-105 active:scale-95 !no-underline"
         >
-          <Phone size={14} weight="bold" />
+          <Phone size={13} weight="fill" className="!text-white" />
           <span>Call 911</span>
         </a>
       </div>

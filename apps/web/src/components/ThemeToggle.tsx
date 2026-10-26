@@ -1,80 +1,88 @@
 import { useEffect, useState } from "react";
+import { Moon, Sun } from "@phosphor-icons/react";
 
-type ThemeMode = "light" | "dark" | "auto";
+type Theme = "light" | "dark";
 
-function getInitialMode(): ThemeMode {
+function getSystemTheme(): Theme {
   if (typeof window === "undefined") {
-    return "auto";
+    return "light";
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function getInitialTheme(): Theme {
+  if (typeof window === "undefined") {
+    return "light";
   }
 
   const stored = window.localStorage.getItem("theme");
-  if (stored === "light" || stored === "dark" || stored === "auto") {
+  if (stored === "light" || stored === "dark") {
     return stored;
   }
 
-  return "auto";
+  return getSystemTheme();
 }
 
-function applyThemeMode(mode: ThemeMode) {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const resolved = mode === "auto" ? (prefersDark ? "dark" : "light") : mode;
-
-  document.documentElement.classList.remove("light", "dark");
-  document.documentElement.classList.add(resolved);
-
-  if (mode === "auto") {
-    document.documentElement.removeAttribute("data-theme");
-  } else {
-    document.documentElement.setAttribute("data-theme", mode);
-  }
-
-  document.documentElement.style.colorScheme = resolved;
+function applyTheme(theme: Theme) {
+  const root = document.documentElement;
+  root.classList.remove("light", "dark");
+  root.classList.add(theme);
+  root.setAttribute("data-theme", theme);
+  root.style.colorScheme = theme;
 }
 
 export default function ThemeToggle() {
-  const [mode, setMode] = useState<ThemeMode>("auto");
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const initialMode = getInitialMode();
-    setMode(initialMode);
-    applyThemeMode(initialMode);
-  }, []);
-
-  useEffect(() => {
-    if (mode !== "auto") {
-      return;
-    }
+    const initialTheme = getInitialTheme();
+    setTheme(initialTheme);
+    applyTheme(initialTheme);
 
     const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = () => applyThemeMode("auto");
-
-    media.addEventListener("change", onChange);
-    return () => {
-      media.removeEventListener("change", onChange);
+    const handleSystemChange = (e: MediaQueryListEvent) => {
+      const stored = window.localStorage.getItem("theme");
+      if (stored !== "light" && stored !== "dark") {
+        const nextSystemTheme: Theme = e.matches ? "dark" : "light";
+        setTheme(nextSystemTheme);
+        applyTheme(nextSystemTheme);
+      }
     };
-  }, [mode]);
 
-  function toggleMode() {
-    const nextMode: ThemeMode = mode === "light" ? "dark" : mode === "dark" ? "auto" : "light";
-    setMode(nextMode);
-    applyThemeMode(nextMode);
-    window.localStorage.setItem("theme", nextMode);
+    media.addEventListener("change", handleSystemChange);
+    return () => {
+      media.removeEventListener("change", handleSystemChange);
+    };
+  }, []);
+
+  function toggleTheme() {
+    const nextTheme: Theme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    applyTheme(nextTheme);
+    window.localStorage.setItem("theme", nextTheme);
   }
 
-  const label =
-    mode === "auto"
-      ? "Theme mode: auto (system). Click to switch to light mode."
-      : `Theme mode: ${mode}. Click to switch mode.`;
+  const isDark = theme === "dark";
+  const label = isDark ? "Switch to light theme" : "Switch to dark theme";
 
   return (
     <button
       type="button"
-      onClick={toggleMode}
+      onClick={toggleTheme}
       aria-label={label}
       title={label}
-      className="rounded-full border border-[var(--chip-line)] bg-[var(--chip-bg)] px-3 py-1.5 text-sm font-semibold text-[var(--sea-ink)] shadow-[0_8px_22px_rgba(30,90,72,0.08)] transition hover:-translate-y-0.5"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--chip-line)] bg-[var(--chip-bg)] text-[var(--sea-ink)] shadow-sm transition-all hover:bg-[var(--link-bg-hover)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
     >
-      {mode === "auto" ? "Auto" : mode === "dark" ? "Dark" : "Light"}
+      <Sun
+        size={18}
+        weight="bold"
+        className="hidden dark:block text-amber-400 transition-transform duration-200"
+      />
+      <Moon
+        size={18}
+        weight="bold"
+        className="block dark:hidden text-slate-700 transition-transform duration-200"
+      />
     </button>
   );
 }

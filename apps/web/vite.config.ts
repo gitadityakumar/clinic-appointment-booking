@@ -16,6 +16,16 @@ const config = defineConfig({
     tanstackStart(),
     viteReact(),
   ],
+  build: {
+    rollupOptions: {
+      onwarn(warning, warn) {
+        if (warning.code === "SOURCEMAP_BROKEN" && warning.plugin === "vite:css-post") {
+          return;
+        }
+        warn(warning);
+      },
+    },
+  },
 });
 
 export default config;
