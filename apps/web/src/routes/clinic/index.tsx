@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 import { clinicConfig } from "@clinic/config";
 import type { Appointment, DoctorBreak, DoctorSchedule } from "@clinic/core";
 import {
-  LockKey,
-  ArrowRight,
-  Plus,
-  SignOut,
-  Star,
-  Wheelchair,
-  Coffee,
-  FloppyDisk,
+  LockKeyIcon,
+  ArrowRightIcon,
+  PlusIcon,
+  SignOutIcon,
+  StarIcon,
+  WheelchairIcon,
+  CoffeeIcon,
+  FloppyDiskIcon,
 } from "@phosphor-icons/react";
 import {
   getAppointmentsFn,
@@ -217,7 +217,7 @@ function ClinicPortalPage() {
         <div className="demo-panel p-8 border-[var(--line)] shadow-2xl space-y-6">
           <div className="text-center space-y-2">
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white mx-auto shadow-lg shadow-blue-500/30">
-              <LockKey size={26} weight="bold" />
+              <LockKeyIcon size={26} weight="bold" />
             </div>
             <span className="island-kicker block">Authorized Personnel Only</span>
             <h1 className="text-2xl font-extrabold text-[var(--sea-ink)]">
@@ -282,7 +282,7 @@ function ClinicPortalPage() {
               ) : (
                 <>
                   <span>Access Doctor Console</span>
-                  <ArrowRight size={14} weight="bold" />
+                  <ArrowRightIcon size={14} weight="bold" />
                 </>
               )}
             </button>
@@ -342,7 +342,7 @@ function ClinicPortalPage() {
               onClick={() => handleQuickBlock(30)}
               className="demo-button inline-flex items-center gap-1 text-xs font-bold py-2 px-3 bg-blue-600 hover:bg-blue-700 text-white"
             >
-              <Plus size={12} weight="bold" />
+              <PlusIcon size={12} weight="bold" />
               <span>Block 30m Walk-in</span>
             </button>
             <button
@@ -351,7 +351,7 @@ function ClinicPortalPage() {
               onClick={() => handleQuickBlock(60)}
               className="demo-button inline-flex items-center gap-1 text-xs font-bold py-2 px-3 bg-blue-600 hover:bg-blue-700 text-white"
             >
-              <Plus size={12} weight="bold" />
+              <PlusIcon size={12} weight="bold" />
               <span>Block 1hr</span>
             </button>
           </div>
@@ -361,7 +361,7 @@ function ClinicPortalPage() {
             onClick={handleLogout}
             className="demo-button demo-button-secondary inline-flex items-center gap-1.5 text-xs font-semibold py-2 px-3 text-red-400 hover:text-red-300 border-red-500/20"
           >
-            <SignOut size={14} weight="bold" />
+            <SignOutIcon size={14} weight="bold" />
             <span>Sign Out</span>
           </button>
         </div>
@@ -454,13 +454,13 @@ function ClinicPortalPage() {
                           )}
                           {apt.isFirstVisit && (
                             <span className="inline-flex items-center gap-1 mt-1 text-[10px] px-1.5 py-0.5 rounded bg-blue-500/15 text-blue-300 font-bold font-mono">
-                              <Star size={11} weight="fill" />
+                              <StarIcon size={11} weight="fill" />
                               <span>New Patient Intake</span>
                             </span>
                           )}
                           {apt.accessibilityNeeds && (
                             <div className="inline-flex items-center gap-1 text-[10px] text-amber-400 mt-1 font-mono">
-                              <Wheelchair size={13} weight="bold" />
+                              <WheelchairIcon size={13} weight="bold" />
                               <span>{apt.accessibilityNeeds}</span>
                             </div>
                           )}
@@ -558,7 +558,7 @@ function ClinicPortalPage() {
                       {dayBreak && (
                         <div className="flex items-center gap-1.5 border-l border-[var(--line)] pl-3 text-[var(--sea-ink-soft)]">
                           <span className="inline-flex items-center gap-1">
-                            <Coffee size={14} weight="bold" />
+                            <CoffeeIcon size={14} weight="bold" />
                             <span>Lunch:</span>
                           </span>
                           <input
@@ -597,7 +597,7 @@ function ClinicPortalPage() {
               onClick={handleSaveSchedule}
               className="demo-button inline-flex items-center gap-1.5 text-xs font-bold bg-[#1A5BFA] hover:bg-[#1548C7] text-white px-6 py-2.5 shadow-lg shadow-blue-500/20"
             >
-              <FloppyDisk size={15} weight="bold" />
+              <FloppyDiskIcon size={15} weight="bold" />
               <span>Save Schedule Settings</span>
             </button>
           </div>

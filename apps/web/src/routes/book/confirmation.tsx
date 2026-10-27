@@ -1,14 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { clinicConfig } from "@clinic/config";
 import {
-  CheckCircle,
-  CalendarCheck,
-  DownloadSimple,
-  FileText,
-  Check,
-  MapPin,
-  ArrowRight,
-  ArrowLeft,
+  CheckCircleIcon,
+  CalendarCheckIcon,
+  DownloadSimpleIcon,
+  FileTextIcon,
+  CheckIcon,
+  MapPinIcon,
+  ArrowRightIcon,
+  ArrowLeftIcon,
 } from "@phosphor-icons/react";
 import { getAppointmentsFn } from "../../lib/server-fns";
 import { useToast } from "../../components/Toast";
@@ -113,7 +113,7 @@ function ConfirmationPage() {
       {/* Confirmation Banner */}
       <div className="demo-panel p-6 sm:p-10 border-[var(--line)] rounded-[15px] text-center space-y-4">
         <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600/15 text-blue-500 mx-auto border border-blue-500/25">
-          <CheckCircle size={36} weight="bold" />
+          <CheckCircleIcon size={36} weight="bold" />
         </div>
 
         <span className="island-kicker block">Booking Confirmed</span>
@@ -162,7 +162,7 @@ function ConfirmationPage() {
             rel="noreferrer"
             className="demo-button inline-flex items-center gap-1.5 text-xs font-bold bg-[#1A5BFA] hover:bg-[#1548C7] text-white shadow-lg shadow-blue-500/20"
           >
-            <CalendarCheck size={16} weight="bold" />
+            <CalendarCheckIcon size={16} weight="bold" />
             <span>Add to Google Calendar</span>
           </a>
           <button
@@ -170,7 +170,7 @@ function ConfirmationPage() {
             onClick={downloadIcs}
             className="demo-button demo-button-secondary inline-flex items-center gap-1.5 text-xs font-bold"
           >
-            <DownloadSimple size={16} weight="bold" />
+            <DownloadSimpleIcon size={16} weight="bold" />
             <span>Download .ics File (Apple / Outlook)</span>
           </button>
         </div>
@@ -180,13 +180,13 @@ function ConfirmationPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="feature-card p-5 rounded-[15px] border border-[var(--line)] space-y-3">
           <h3 className="font-bold text-sm text-[var(--sea-ink)] flex items-center gap-2">
-            <FileText size={16} weight="bold" className="text-blue-500" />
+            <FileTextIcon size={16} weight="bold" className="text-blue-500" />
             <span>Visit Checklist</span>
           </h3>
           <ul className="space-y-2 text-xs text-[var(--sea-ink-soft)]">
             {clinicConfig.policies.intakeInstructions.map((item) => (
               <li key={item} className="flex items-start gap-1.5">
-                <Check size={14} weight="bold" className="text-blue-500 shrink-0 mt-0.5" />
+                <CheckIcon size={14} weight="bold" className="text-blue-500 shrink-0 mt-0.5" />
                 <span>{item}</span>
               </li>
             ))}
@@ -198,7 +198,7 @@ function ConfirmationPage() {
 
         <div className="feature-card p-5 rounded-[15px] border border-[var(--line)] space-y-3">
           <h3 className="font-bold text-sm text-[var(--sea-ink)] flex items-center gap-2">
-            <MapPin size={16} weight="bold" className="text-blue-500" />
+            <MapPinIcon size={16} weight="bold" className="text-blue-500" />
             <span>Getting Here</span>
           </h3>
           <p className="text-xs text-[var(--sea-ink-soft)] leading-relaxed">
@@ -216,7 +216,7 @@ function ConfirmationPage() {
             className="inline-flex items-center gap-1 text-xs font-bold text-blue-500 underline hover:text-blue-600"
           >
             <span>Open in Google Maps</span>
-            <ArrowRight size={12} weight="bold" />
+            <ArrowRightIcon size={12} weight="bold" />
           </a>
         </div>
       </div>
@@ -226,7 +226,7 @@ function ConfirmationPage() {
           to="/"
           className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--sea-ink-soft)] hover:text-[var(--sea-ink)]"
         >
-          <ArrowLeft size={13} weight="bold" />
+          <ArrowLeftIcon size={13} weight="bold" />
           <span>Return to Clinic Home</span>
         </Link>
         <Link
@@ -234,7 +234,7 @@ function ConfirmationPage() {
           className="demo-button demo-button-secondary inline-flex items-center gap-1.5 text-xs font-bold"
         >
           <span>View in My Appointments</span>
-          <ArrowRight size={13} weight="bold" />
+          <ArrowRightIcon size={13} weight="bold" />
         </Link>
       </div>
     </div>

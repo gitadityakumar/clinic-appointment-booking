@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
-import { Check, Warning, Info, Phone, X } from "@phosphor-icons/react";
+import { CheckIcon, WarningIcon, InfoIcon, PhoneIcon, XIcon } from "@phosphor-icons/react";
 
 export interface ToastItem {
   id: string;
@@ -68,11 +68,11 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               }`}
             >
               {t.type === "success" ? (
-                <Check size={16} weight="bold" />
+                <CheckIcon size={16} weight="bold" />
               ) : t.type === "error" ? (
-                <Warning size={16} weight="bold" />
+                <WarningIcon size={16} weight="bold" />
               ) : (
-                <Info size={16} weight="bold" />
+                <InfoIcon size={16} weight="bold" />
               )}
             </div>
 
@@ -91,7 +91,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
                     href={`tel:${t.clinicPhone}`}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-400 underline hover:text-blue-300"
                   >
-                    <Phone size={13} weight="bold" />
+                    <PhoneIcon size={13} weight="bold" />
                     <span>Call Office: {t.clinicPhone}</span>
                   </a>
                 </div>
@@ -105,7 +105,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
               aria-label="Close notification"
               className="shrink-0 text-slate-400 hover:text-white p-1 rounded-md text-xs cursor-pointer"
             >
-              <X size={14} weight="bold" />
+              <XIcon size={14} weight="bold" />
             </button>
           </div>
         ))}

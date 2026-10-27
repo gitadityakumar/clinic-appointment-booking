@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Moon, Sun } from "@phosphor-icons/react";
+import { MoonIcon, SunIcon } from "@phosphor-icons/react";
 
 type Theme = "light" | "dark";
 
@@ -73,12 +73,12 @@ export default function ThemeToggle() {
       title={label}
       className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--chip-line)] bg-[var(--chip-bg)] text-[var(--sea-ink)] shadow-sm transition-all hover:bg-[var(--link-bg-hover)] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
     >
-      <Sun
+      <SunIcon
         size={18}
         weight="bold"
         className="hidden dark:block text-amber-400 transition-transform duration-200"
       />
-      <Moon
+      <MoonIcon
         size={18}
         weight="bold"
         className="block dark:hidden text-slate-700 transition-transform duration-200"

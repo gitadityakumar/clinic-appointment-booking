@@ -2,7 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { clinicConfig } from "@clinic/config";
 import type { TimeSlot } from "@clinic/core";
-import { Lightning, Check, ArrowRight } from "@phosphor-icons/react";
+import { LightningIcon, CheckIcon, ArrowRightIcon } from "@phosphor-icons/react";
 import { formatDuration, formatPrice } from "../../lib/clinic";
 import { bookAppointmentFn, getServicesFn, getSlotsFn } from "../../lib/server-fns";
 import { useToast } from "../../components/Toast";
@@ -232,7 +232,7 @@ function BookSlotPage() {
               </span>
               {slotData?.fromCache && (
                 <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 font-semibold border border-blue-500/20">
-                  <Lightning size={11} weight="fill" />
+                  <LightningIcon size={11} weight="fill" />
                   <span>Edge Cache</span>
                 </span>
               )}
@@ -300,7 +300,7 @@ function BookSlotPage() {
               </span>
               {selectedSlot && (
                 <span className="inline-flex items-center gap-1 font-bold text-blue-400">
-                  <Check size={14} weight="bold" />
+                  <CheckIcon size={14} weight="bold" />
                   <span>Ready</span>
                 </span>
               )}
@@ -427,7 +427,7 @@ function BookSlotPage() {
               ) : (
                 <>
                   <span>Confirm & Book Appointment</span>
-                  <ArrowRight size={15} weight="bold" />
+                  <ArrowRightIcon size={15} weight="bold" />
                 </>
               )}
             </button>

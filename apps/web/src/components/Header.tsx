@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { clinicConfig } from "@clinic/config";
-import { FirstAid, LockKey, Phone } from "@phosphor-icons/react";
+import { FirstAidIcon, LockKeyIcon, PhoneIcon } from "@phosphor-icons/react";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
@@ -11,7 +11,7 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link to="/" className="flex items-center gap-2.5 text-inherit no-underline">
             <div className="flex h-10 w-10 items-center justify-center rounded-[12px] bg-[#1A5BFA] text-white shadow-lg shadow-blue-500/25">
-              <FirstAid size={22} weight="bold" />
+              <FirstAidIcon size={22} weight="bold" />
             </div>
             <div>
               <span className="block text-base font-bold tracking-tight text-[var(--sea-ink)] leading-tight">
@@ -45,7 +45,7 @@ export default function Header() {
             className="nav-link inline-flex items-center gap-1 font-mono text-xs px-2.5 py-1 rounded-full border border-blue-500/30 text-blue-500 hover:bg-blue-500/10"
             activeProps={{ className: "nav-link is-active" }}
           >
-            <LockKey size={13} weight="bold" />
+            <LockKeyIcon size={13} weight="bold" />
             <span>Clinic Staff</span>
           </Link>
         </div>
@@ -56,7 +56,7 @@ export default function Header() {
             href={`tel:${clinicConfig.contact.phone}`}
             className="hidden lg:inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-3 py-1.5 rounded-full border border-[var(--chip-line)] bg-[var(--chip-bg)] text-[var(--sea-ink)] hover:bg-[var(--link-bg-hover)] hover:text-[var(--sea-ink)] no-underline"
           >
-            <Phone size={14} weight="bold" />
+            <PhoneIcon size={14} weight="bold" />
             <span>{clinicConfig.contact.formattedPhone}</span>
           </a>
 

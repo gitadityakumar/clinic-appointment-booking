@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Clock, ArrowRight } from "@phosphor-icons/react";
+import { ClockIcon, ArrowRightIcon } from "@phosphor-icons/react";
 import { formatDuration, formatPrice } from "../../lib/clinic";
 import { getServicesFn } from "../../lib/server-fns";
 
@@ -39,7 +39,7 @@ function BookServicesPage() {
                 <div className="flex items-center gap-3">
                   <h2 className="text-lg font-bold text-[var(--sea-ink)]">{service.name}</h2>
                   <span className="inline-flex items-center gap-1 text-xs font-mono px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 font-semibold border border-blue-500/20">
-                    <Clock size={12} weight="bold" />
+                    <ClockIcon size={12} weight="bold" />
                     <span>{formatDuration(service.durationMinutes)}</span>
                   </span>
                 </div>
@@ -54,7 +54,7 @@ function BookServicesPage() {
                 </span>
                 <span className="inline-flex items-center gap-1 text-xs font-bold text-blue-400">
                   <span>Select Time & Date</span>
-                  <ArrowRight size={13} weight="bold" />
+                  <ArrowRightIcon size={13} weight="bold" />
                 </span>
               </div>
             </div>

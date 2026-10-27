@@ -2,7 +2,7 @@ import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 import { clinicConfig } from "@clinic/config";
 import type { Appointment } from "@clinic/core";
-import { Plus, X, Calendar } from "@phosphor-icons/react";
+import { PlusIcon, XIcon, CalendarIcon } from "@phosphor-icons/react";
 import { cancelAppointmentFn, getAppointmentsFn } from "../../lib/server-fns";
 import { useToast } from "../../components/Toast";
 
@@ -87,7 +87,7 @@ function PatientPortalPage() {
           to="/book"
           className="demo-button inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold bg-[#1A5BFA] hover:bg-[#1548C7] text-white shrink-0 shadow-lg shadow-blue-500/25"
         >
-          <Plus size={14} weight="bold" />
+          <PlusIcon size={14} weight="bold" />
           <span>Schedule New Consultation</span>
         </Link>
       </div>
@@ -113,7 +113,7 @@ function PatientPortalPage() {
               onClick={() => setCancellingApt(null)}
               className="text-xs text-slate-400 hover:text-white p-1 rounded cursor-pointer"
             >
-              <X size={14} weight="bold" />
+              <XIcon size={14} weight="bold" />
             </button>
           </div>
 
@@ -199,7 +199,7 @@ function PatientPortalPage() {
                     </div>
 
                     <p className="text-xs text-[var(--sea-ink-soft)] font-medium font-mono flex items-center gap-1.5">
-                      <Calendar size={13} weight="bold" className="text-blue-500" />
+                      <CalendarIcon size={13} weight="bold" className="text-blue-500" />
                       <span>
                         {formattedDate} at {formattedTime} • {clinicConfig.identity.doctorName}
                       </span>

@@ -1,14 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { clinicConfig } from "@clinic/config";
 import {
-  ArrowRight,
-  Phone,
-  Check,
-  MapPin,
-  Clock,
-  Car,
-  Train,
-  ShieldCheck,
+  ArrowRightIcon,
+  PhoneIcon,
+  CheckIcon,
+  MapPinIcon,
+  ClockIcon,
+  CarIcon,
+  TrainIcon,
+  ShieldCheckIcon,
 } from "@phosphor-icons/react";
 import { formatDuration, formatPrice } from "../lib/clinic";
 import { getServicesFn } from "../lib/server-fns";
@@ -48,13 +48,13 @@ function HomePage() {
                 className="demo-button inline-flex items-center gap-2 text-sm sm:text-base font-bold bg-[#1A5BFA] hover:bg-[#1548C7] text-white border-transparent px-6 py-3 shadow-lg shadow-blue-500/30"
               >
                 <span>Schedule Consultation</span>
-                <ArrowRight size={16} weight="bold" />
+                <ArrowRightIcon size={16} weight="bold" />
               </Link>
               <a
                 href={`tel:${clinicConfig.contact.phone}`}
                 className="demo-button demo-button-secondary inline-flex items-center gap-2 text-sm sm:text-base px-5 py-3 font-mono"
               >
-                <Phone size={15} weight="bold" />
+                <PhoneIcon size={15} weight="bold" />
                 <span>{clinicConfig.contact.formattedPhone}</span>
               </a>
             </div>
@@ -67,7 +67,7 @@ function HomePage() {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[var(--sea-ink-soft)]">
                 {clinicConfig.identity.doctorQualifications.map((qual) => (
                   <li key={qual} className="flex items-start gap-1.5">
-                    <Check size={14} weight="bold" className="text-blue-500 shrink-0 mt-0.5" />
+                    <CheckIcon size={14} weight="bold" className="text-blue-500 shrink-0 mt-0.5" />
                     <span>{qual}</span>
                   </li>
                 ))}
@@ -92,7 +92,7 @@ function HomePage() {
                 </p>
                 <div className="mt-2 flex items-center justify-between text-xs font-mono text-[var(--sea-ink-soft)] pt-2 border-t border-[var(--line)]">
                   <span className="inline-flex items-center gap-1">
-                    <MapPin size={13} weight="bold" className="text-blue-500" />
+                    <MapPinIcon size={13} weight="bold" className="text-blue-500" />
                     <span>
                       {clinicConfig.contact.address.city}, {clinicConfig.contact.address.state}
                     </span>
@@ -138,7 +138,7 @@ function HomePage() {
                 </p>
                 <div className="flex items-center gap-3 text-xs font-mono text-[var(--sea-ink-soft)]">
                   <span className="inline-flex items-center gap-1">
-                    <Clock size={13} weight="bold" />
+                    <ClockIcon size={13} weight="bold" />
                     <span>{formatDuration(service.durationMinutes)}</span>
                   </span>
                   <span>•</span>
@@ -153,7 +153,7 @@ function HomePage() {
                   className="demo-button inline-flex items-center justify-center gap-1.5 w-full text-center text-xs sm:text-sm font-bold bg-[#1A5BFA] hover:bg-[#1548C7] text-white shadow-md shadow-blue-500/20"
                 >
                   <span>Choose Time & Book</span>
-                  <ArrowRight size={14} weight="bold" />
+                  <ArrowRightIcon size={14} weight="bold" />
                 </Link>
               </div>
             </div>
@@ -173,13 +173,13 @@ function HomePage() {
               {clinicConfig.contact.address.state} {clinicConfig.contact.address.postalCode}
             </p>
             <p className="text-xs text-[var(--sea-ink-soft)] leading-relaxed flex items-center gap-1.5">
-              <Car size={15} weight="bold" className="text-blue-500 shrink-0" />
+              <CarIcon size={15} weight="bold" className="text-blue-500 shrink-0" />
               <span>
                 <strong>Parking:</strong> {clinicConfig.contact.address.parkingInstructions}
               </span>
             </p>
             <p className="text-xs text-[var(--sea-ink-soft)] leading-relaxed flex items-center gap-1.5">
-              <Train size={15} weight="bold" className="text-blue-500 shrink-0" />
+              <TrainIcon size={15} weight="bold" className="text-blue-500 shrink-0" />
               <span>
                 <strong>Transit:</strong> {clinicConfig.contact.address.publicTransitNote}
               </span>
@@ -191,7 +191,7 @@ function HomePage() {
               className="inline-flex items-center gap-1 text-xs font-bold text-blue-500 underline hover:text-blue-600"
             >
               <span>Open in Google Maps</span>
-              <ArrowRight size={12} weight="bold" />
+              <ArrowRightIcon size={12} weight="bold" />
             </a>
           </div>
 
@@ -207,7 +207,7 @@ function HomePage() {
               ))}
             </ul>
             <div className="mt-4 p-3 rounded-[12px] bg-blue-500/10 text-xs text-blue-400 border border-blue-500/20 font-mono flex items-start gap-2">
-              <ShieldCheck size={16} weight="bold" className="shrink-0 mt-0.5 text-blue-400" />
+              <ShieldCheckIcon size={16} weight="bold" className="shrink-0 mt-0.5 text-blue-400" />
               <span>
                 Plan to arrive {clinicConfig.policies.arrivalMinutesEarly} minutes early for
                 front-desk check-in.

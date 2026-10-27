@@ -1,5 +1,5 @@
 import { clinicConfig } from "@clinic/config";
-import { CheckCircle, ShieldCheck, ArrowRight } from "@phosphor-icons/react";
+import { CheckCircleIcon, ShieldCheckIcon, ArrowRightIcon } from "@phosphor-icons/react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -19,7 +19,7 @@ export default function Footer() {
             {clinicConfig.identity.tagline}
           </p>
           <div className="mt-4 inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-md bg-teal-500/10 text-teal-700 dark:text-teal-300 font-semibold border border-teal-500/20">
-            <CheckCircle size={14} weight="bold" />
+            <CheckCircleIcon size={14} weight="bold" />
             <span>{clinicConfig.identity.brandBadge}</span>
           </div>
         </div>
@@ -46,7 +46,7 @@ export default function Footer() {
             className="inline-flex items-center gap-1 text-xs font-semibold text-teal-700 dark:text-teal-400 underline hover:text-teal-800"
           >
             <span>Get Directions on Google Maps</span>
-            <ArrowRight size={12} weight="bold" />
+            <ArrowRightIcon size={12} weight="bold" />
           </a>
         </div>
 
@@ -75,7 +75,7 @@ export default function Footer() {
           &copy; {year} {clinicConfig.identity.clinicName}. All medical rights reserved.
         </p>
         <p className="m-0 text-[var(--sea-ink-soft)] inline-flex items-center gap-1.5">
-          <ShieldCheck size={14} weight="bold" className="text-blue-500" />
+          <ShieldCheckIcon size={14} weight="bold" className="text-blue-500" />
           <span>{clinicConfig.identity.clinicName} • Official Patient Booking Portal</span>
         </p>
       </div>
