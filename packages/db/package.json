@@ -14,9 +14,9 @@
   "dependencies": {
     "@clinic/config": "workspace:*",
     "@clinic/core": "workspace:*",
-    "drizzle-orm": "^0.38.4"
+    "drizzle-orm": "^0.45.4"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.30.2"
+    "drizzle-kit": "^0.31.11"
   }
 }
