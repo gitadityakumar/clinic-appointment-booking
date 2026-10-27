@@ -31,7 +31,9 @@
     "better-auth": "^1.1.21",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tailwindcss": "^4.1.18"
+    "resend": "catalog:",
+    "tailwindcss": "^4.1.18",
+    "twilio": "catalog:"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.26.0",
