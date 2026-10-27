@@ -12,6 +12,7 @@ import type {
   ScheduleOverride,
   Service,
   User,
+  OtpRecord,
 } from "@clinic/core";
 
 // In-memory persistent state for local dev and edge fallback
@@ -22,6 +23,8 @@ class ClinicStore {
   breaks: Map<string, DoctorBreak> = new Map();
   overrides: Map<string, ScheduleOverride> = new Map();
   appointments: Map<string, Appointment> = new Map();
+  otpTokens: Map<string, OtpRecord> = new Map();
+  lastOtpSentAt: Map<string, number> = new Map();
   kvCache: Map<string, { value: string; expiresAt: number }> = new Map();
 
   constructor() {

@@ -1,4 +1,5 @@
 export type UserRole = "patient" | "doctor";
+export type OtpChannel = "email" | "sms" | "whatsapp";
 
 export interface User {
   id: string;
@@ -7,6 +8,8 @@ export interface User {
   phone?: string | null;
   role: UserRole;
   emailVerified?: boolean;
+  phoneVerified?: boolean;
+  authMethod?: OtpChannel;
   createdAt: string;
 }
 
@@ -88,4 +91,42 @@ export interface DailySlotAvailability {
   slots: TimeSlot[];
   isBlockedDay: boolean;
   blockReason?: string | null;
+}
+
+export interface OtpRecord {
+  id: string;
+  identifier: string; // email address or phone number
+  code: string;
+  channel: OtpChannel;
+  attempts: number;
+  maxAttempts: number;
+  expiresAt: number; // timestamp in milliseconds
+  createdAt: string; // ISO string
+}
+
+export interface SendBookingOtpInput {
+  channel: OtpChannel;
+  patientName: string;
+  patientEmail: string;
+  patientPhone?: string;
+  serviceId: string;
+  startTime: string; // ISO string
+  chiefComplaint: string;
+  isFirstVisit: boolean;
+  accessibilityNeeds?: string;
+}
+
+export interface SendBookingOtpResult {
+  success: boolean;
+  token: string;
+  channel: OtpChannel;
+  maskedRecipient: string;
+  expiresAt: number;
+  devCode?: string;
+}
+
+export interface VerifyBookingOtpInput {
+  token: string;
+  code: string;
+  bookingData: SendBookingOtpInput;
 }

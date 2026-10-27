@@ -12,10 +12,12 @@
     "format": "vp fmt",
     "format:check": "vp fmt --check",
     "test": "vp test",
+    "emulate": "emulate start --service resend,twilio",
     "build": "vp run web#build",
     "ready": "vp check && vp test && vp run web#build"
   },
   "devDependencies": {
+    "emulate": "catalog:",
     "vite-plus": "catalog:"
   },
   "devEngines": {

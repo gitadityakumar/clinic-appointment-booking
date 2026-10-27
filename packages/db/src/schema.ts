@@ -9,6 +9,8 @@ export const users = sqliteTable("users", {
     .notNull()
     .default("patient"),
   emailVerified: integer("email_verified", { mode: "boolean" }).notNull().default(false),
+  phoneVerified: integer("phone_verified", { mode: "boolean" }).notNull().default(false),
+  authMethod: text("auth_method"),
   image: text("image"),
   createdAt: text("created_at")
     .notNull()
@@ -82,6 +84,19 @@ export const appointments = sqliteTable("appointments", {
   accessibilityNeeds: text("accessibility_needs"),
   doctorNotes: text("doctor_notes"),
   cancellationReason: text("cancellation_reason"),
+  createdAt: text("created_at")
+    .notNull()
+    .$defaultFn(() => new Date().toISOString()),
+});
+
+export const otpTokens = sqliteTable("otp_tokens", {
+  id: text("id").primaryKey(),
+  identifier: text("identifier").notNull(), // email address or phone number
+  code: text("code").notNull(),
+  channel: text("channel", { enum: ["email", "sms", "whatsapp"] }).notNull(),
+  attempts: integer("attempts").notNull().default(0),
+  maxAttempts: integer("max_attempts").notNull().default(3),
+  expiresAt: integer("expires_at").notNull(),
   createdAt: text("created_at")
     .notNull()
     .$defaultFn(() => new Date().toISOString()),
