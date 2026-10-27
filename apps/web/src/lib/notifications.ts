@@ -135,11 +135,12 @@ export async function dispatchOtpNotification(
       : `whatsapp:${rawRecipient}`
     : rawRecipient;
 
-  const from = isWhatsapp
-    ? defaultWhatsapp.startsWith("whatsapp:")
-      ? defaultWhatsapp
-      : `whatsapp:${defaultWhatsapp}`
-    : defaultPhone;
+  const from =
+    isWhatsapp && !isDev
+      ? defaultWhatsapp.startsWith("whatsapp:")
+        ? defaultWhatsapp
+        : `whatsapp:${defaultWhatsapp}`
+      : defaultPhone;
 
   const body = `Your ${clinicConfig.identity.clinicName} verification code is: ${payload.code}. Valid for 5 minutes.`;
 
