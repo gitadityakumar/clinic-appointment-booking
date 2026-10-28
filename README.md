@@ -103,17 +103,18 @@ appointment-booking-app/
 
 Built-in commands and package scripts are orchestrated via `vp` (Vite+) and `pnpm`:
 
-| Command              | Toolchain          | Description                                                   |
-| -------------------- | ------------------ | ------------------------------------------------------------- |
-| `pnpm dev`           | `vp run web#dev`   | Start the local TanStack Start development server             |
-| `pnpm run emulate`   | `emulate`          | Launch local Resend & Twilio API emulators                    |
-| `pnpm test`          | `vp test`          | Run the Vitest test suite across all workspace packages       |
-| `pnpm check`         | `vp check`         | Check formatting, linting, and TypeScript types               |
-| `pnpm run check:fix` | `vp check --fix`   | Automatically fix formatting and lint issues                  |
-| `pnpm run lint`      | `vp lint`          | Run Oxlint across the codebase                                |
-| `pnpm run format`    | `vp fmt`           | Format all files with Oxfmt                                   |
-| `pnpm run build`     | `vp run web#build` | Build the full-stack web application for production           |
-| `pnpm run ready`     | `vp run ready`     | Run complete CI pre-flight check (`check` + `test` + `build`) |
+| Command              | Toolchain            | Description                                                   |
+| -------------------- | -------------------- | ------------------------------------------------------------- |
+| `pnpm dev`           | `vp run web#dev`     | Start the local TanStack Start development server             |
+| `pnpm run emulate`   | `emulate`            | Launch local Resend & Twilio API emulators                    |
+| `pnpm test`          | `vp test`            | Run the Vitest test suite across all workspace packages       |
+| `pnpm check`         | `vp check`           | Check formatting, linting, and TypeScript types               |
+| `pnpm run check:fix` | `vp check --fix`     | Automatically fix formatting and lint issues                  |
+| `pnpm run lint`      | `vp lint`            | Run Oxlint across the codebase                                |
+| `pnpm run format`    | `vp fmt`             | Format all files with Oxfmt                                   |
+| `pnpm run build`     | `vp run web#build`   | Build the full-stack web application for production           |
+| `pnpm run preview`   | `vp run web#preview` | Preview the production build locally                          |
+| `pnpm run ready`     | `vp run ready`       | Run complete CI pre-flight check (`check` + `test` + `build`) |
 
 ## Configuration
 
@@ -226,7 +227,8 @@ wrangler secret put TWILIO_AUTH_TOKEN
 - [emulate](https://github.com/vercel-labs/emulate) by Vercel Labs for local API emulation.
 - [Vite+](https://viteplus.dev) for the unified web development toolchain.
 - [TanStack Start](https://tanstack.com/start) and [TanStack Router](https://tanstack.com/router) for full-stack routing and server functions.
-- [Hono](https://hono.dev) and [Cloudflare Workers](https://workers.cloudflare.com/) for the edge runtime.
+- [Cloudflare Workers](https://workers.cloudflare.com/) for the edge runtime.
+- [Tailwind CSS](https://tailwindcss.com) for styling.
 
 ## License
 
